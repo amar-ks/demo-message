@@ -1,0 +1,33 @@
+{% extends 'webmessage/base.html' %}
+{% block title %}{{ msg }}{% endblock %}
+{% block inbox_active %}active{% endblock %}
+
+
+{% block body %}
+<div class="albums-container container-fluid">
+	
+    <!-- Inbox Message -->
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Message Detail</h3>
+        </div>
+
+        {% if msg %}
+            <div class="col-sm-12">
+                <h4>Subject: {{ msg.subject }}</h4>
+                <h4>Sender Name: {{ msg.sender_name }}</h4>
+                <h4>Time: {{ msg.created_date }}</h4><hr>
+                <p>Description: {{ msg.description }}</p>
+            </div>
+        {% else %}
+            <div class="col-sm-12">
+                <br>
+                <span class="glyphicon glyphicon-plus"></span>&nbsp; No Message
+            </div>
+        {% endif %}
+    </div>
+
+    
+
+</div>
+{% endblock %}
